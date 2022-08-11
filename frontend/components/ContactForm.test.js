@@ -89,7 +89,7 @@ test("renders all firstName, lastName and email text when submitted. Does NOT re
   userEvent.type(lastNameField, "monteiro");
   userEvent.type(emailField, "monteiro@email.com");
 
-  const submitButtton = screen.getByRole("button");
+  const submitButtton = await screen.findByRole("button");
   userEvent.click(submitButtton);
 
   await waitFor(() => {
@@ -118,8 +118,8 @@ test("renders all fields text when all fields are submitted.", async () => {
   userEvent.type(emailField, "monteiro@email.com");
   userEvent.type(messageField, "alexmonteiromessage");
 
-  const buttton = await screen.findByRole("button");
-  userEvent.click(buttton);
+  const submitButtton = await screen.findByRole("button");
+  userEvent.click(submitButtton);
 
   await waitFor(() => {
     const firstNameDisplay = screen.queryByText(/Alex/i);
